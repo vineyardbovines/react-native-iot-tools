@@ -151,7 +151,7 @@ Requests location permission if the user hasn't been prompted for it. The [`.loc
 
 | Parameter | Type                      | Description                                                        | Default      |
 | --------- | ------------------------- | ------------------------------------------------------------------ | ------------ |
-| `type`    | `LocationPermissionTypes` | The type of location permission to request (always or when in use) | `.whenInUse` |
+| type      | `LocationPermissionTypes` | The type of location permission to request (always or when in use) | `.whenInUse` |
 
 ```tsx
 const requestLocationPermission = await Wifi.requestLocationPermission({
@@ -163,14 +163,14 @@ const requestLocationPermission = await Wifi.requestLocationPermission({
 
 Connects to a given network. Returns the SSID of the connected network. The [`.connect`](#-connect) listener will emit an event when a network connects (optional).
 
-| Parameter      | Type           | Description                                | Default      |
-| -------------- | -------------- | ------------------------------------------ | ------------ |
-| `ssid`         | `string`       | The SSID to connect to                     | **Required** |
-| `passphrase`   | `string`       | The SSID passphrase (if protected network) | `""`         |
-| `isWEP`        | `boolean`      | Whether or not the network uses WEP        | `false`      |
-| `ssidPrefix`   | `string`       | SSID prefix to connect to                  | `null`       |
-| `eapSettings`  | `EAPSettings`  | EAP settings to pass to the hotspot        | `null`       |
-| `hs20Settings` | `HS20Settings` | HS20 settings to pass to the hotspot       | `null`       |
+| Parameter    | Type           | Description                                | Default      |
+| ------------ | -------------- | ------------------------------------------ | ------------ |
+| ssid         | `string`       | The SSID to connect to                     | **Required** |
+| passphrase   | `string`       | The SSID passphrase (if protected network) | `""`         |
+| isWEP        | `boolean`      | Whether or not the network uses WEP        | `false`      |
+| ssidPrefix   | `string`       | SSID prefix to connect to                  | `null`       |
+| eapSettings  | `EAPSettings`  | EAP settings to pass to the hotspot        | `null`       |
+| hs20Settings | `HS20Settings` | HS20 settings to pass to the hotspot       | `null`       |
 
 ```tsx
 const connectToNetwork = await Wifi.connectToNetwork({
@@ -189,7 +189,7 @@ Disconnects from a given network. Returns `true` if successfully disconnected. T
 
 | Parameter | Type     | Description            | Default      |
 | --------- | -------- | ---------------------- | ------------ |
-| `ssid`    | `string` | The SSID to connect to | **Required** |
+| ssid      | `string` | The SSID to connect to | **Required** |
 
 ```tsx
 const disconnect = await Wifi.disconnectFromNetwork({
@@ -219,7 +219,7 @@ Returns whether or not the passed SSID is the currently connected network.
 
 | Parameter | Type     | Description                        | Default      |
 | --------- | -------- | ---------------------------------- | ------------ |
-| `ssid`    | `string` | The SSID to check for connectivity | **Required** |
+| ssid      | `string` | The SSID to check for connectivity | **Required** |
 
 ```tsx
 const isConnected = Wifi.isConnectedToNetwork({

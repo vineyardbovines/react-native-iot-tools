@@ -122,7 +122,7 @@ Discovers ESP32 devices over Bluetooth. Returns true when discovery completes. T
 
 | Parameter | Type     | Description               | Default                      |
 | --------- | -------- | ------------------------- | ---------------------------- |
-| `prefix`  | `string` | Device prefix to scan for | `""` (looks for all devices) |
+| prefix    | `string` | Device prefix to scan for | `""` (looks for all devices) |
 
 ```ts
 React.useEffect(() => {
@@ -182,12 +182,12 @@ const discoveredDevices = ESP32.getDiscoveredDevices();
 
 Connects to a given ESP32 device. Returns true if succesfully connected. The [`.connectionEvent`](#-connectionEvent) listener will emit an event with the device object when the device connects.
 
-| Parameter           | Type           | Description              | Default                                 |
-| ------------------- | -------------- | ------------------------ | --------------------------------------- |
-| `name`              | `string`       | The name of the device   | **Required**                            |
-| `transportMode`     | `"ap" | "ble"` | Mode of transport        | `"ble"`                                 |
-| `proofOfPossession` | `string`       | A device-specific secret | `""`                                    |
-| `apPassword`        | `string`       | Access point password    | **Required if `transportMode == "ap"`** |
+| Parameter         | Type           | Description              | Default                                 |
+| ----------------- | -------------- | ------------------------ | --------------------------------------- |
+| name              | `string`       | The name of the device   | **Required**                            |
+| transportMode     | `"ap" | "ble"` | Mode of transport        | `"ble"`                                 |
+| proofOfPossession | `string`       | A device-specific secret | `""`                                    |
+| apPassword        | `string`       | Access point password    | **Required if `transportMode == "ap"`** |
 
 ```ts
 React.useEffect(() => {
@@ -257,10 +257,10 @@ React.useEffect(() => {
 
 Provisions a device with wifi credentials. Returns true when provisioned, errors out if an ESP32 device is not found or connected.
 
-| Parameter    | Type     | Description           | Default      |
-| ------------ | -------- | --------------------- | ------------ |
-| `ssid`       | `string` | wifi network SSID     | **Required** |
-| `passphrase` | `string` | wifi network password | **Required** |
+| Parameter  | Type     | Description           | Default      |
+| ---------- | -------- | --------------------- | ------------ |
+| ssid       | `string` | wifi network SSID     | **Required** |
+| passphrase | `string` | wifi network password | **Required** |
 
 ```ts
 React.useEffect(() => {
@@ -275,10 +275,10 @@ React.useEffect(() => {
 
 Sends data to a device via an endpoint. Returns the status code sent from the device when data is received.
 
-| Parameter  | Type     | Description                                | Default      |
-| ---------- | -------- | ------------------------------------------ | ------------ |
-| `endpoint` | `string` | The endpoint on the device to send data to | **Required** |
-| `data`     | `string` | Data to send to the device                 | **Required** |
+| Parameter | Type     | Description                                | Default      |
+| --------- | -------- | ------------------------------------------ | ------------ |
+| endpoint  | `string` | The endpoint on the device to send data to | **Required** |
+| data      | `string` | Data to send to the device                 | **Required** |
 
 ```ts
 React.useEffect(() => {

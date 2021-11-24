@@ -136,10 +136,10 @@ Start discovering Bluetooth devices. The [`.discover`](#-discover) listener will
 
 This function does not return any devices, so the listener is required if you need to collect device information.
 
-| Parameter         | Type       | Description                                                 | Default                      |
-| ----------------- | ---------- | ----------------------------------------------------------- | ---------------------------- |
-| `serviceUUIDs`    | `string[]` | An array of service UUIDs on devices you want to scan for.  | `[]` (scans for all devices) |
-| `allowDuplicates` | `boolean`  | Whether or not to allow duplicate devices to be discovered. | `false`                      |
+| Parameter       | Type       | Description                                                 | Default                      |
+| --------------- | ---------- | ----------------------------------------------------------- | ---------------------------- |
+| serviceUUIDs    | `string[]` | An array of service UUIDs on devices you want to scan for.  | `[]` (scans for all devices) |
+| allowDuplicates | `boolean`  | Whether or not to allow duplicate devices to be discovered. | `false`                      |
 
 ```tsx
 React.useEffect(() => {
@@ -180,20 +180,19 @@ Connects to a device. Returns a `boolean` for whether or not the device successf
 
 **Note:** you must discover devices before connecting to them. If you aren't calling `startDiscovery` before connecting, you can pass the `shouldDiscover` param to this method.
 
-| Parameter                    | Type      | Description                                                                                             | Default      |
-| ---------------------------- | --------- | ------------------------------------------------------------------------------------------------------- | ------------ |
-| `peripheralUUID`             | `string`  | The UUID of the device to connect to                                                                    | **Required** |
-| `notifyOnConnect`            | `boolean` | Display an alert dialog when device connects.                                                           | `false`      |
-| `notifyOnDisconnect`         | `boolean` | Display an alert dialog when device disconnects.                                                        | `false`      |
-| `notifyOnNotification`       | `boolean` | Display an alert dialog for any notification received from the device.                                  | `false`      |
-| `startDelay`                 | `boolean` | Indicate a delay before connecting to the device.                                                       | `false`      |
-| `requireANCS`                | `boolean` | **iOS >=13 only**. Require Apple Notification Center Service when connecting to a device.               | `false`      |
-| `enableTransportBridgingKey` | `boolean` | **iOS >= 13 only**. Bridge classic Bluetooth technology profiles once the device is connected over BLE. | `false`      |
-| `shouldDiscover`             | `boolean` | **BLE, iOS only.** Discover devices before connecting.                                                  | `false`      |
+| Parameter                  | Type      | Description                                                                                             | Default      |
+| -------------------------- | --------- | ------------------------------------------------------------------------------------------------------- | ------------ |
+| peripheralUUID             | `string`  | The UUID of the device to connect to                                                                    | **Required** |
+| notifyOnConnect            | `boolean` | Display an alert dialog when device connects.                                                           | `false`      |
+| notifyOnDisconnect         | `boolean` | Display an alert dialog when device disconnects.                                                        | `false`      |
+| notifyOnNotification       | `boolean` | Display an alert dialog for any notification received from the device.                                  | `false`      |
+| startDelay                 | `boolean` | Indicate a delay before connecting to the device.                                                       | `false`      |
+| requireANCS                | `boolean` | **iOS >=13 only**. Require Apple Notification Center Service when connecting to a device.               | `false`      |
+| enableTransportBridgingKey | `boolean` | **iOS >= 13 only**. Bridge classic Bluetooth technology profiles once the device is connected over BLE. | `false`      |
+| shouldDiscover             | `boolean` | Discover devices before connecting.                                                                     | `false`      |
 
 ```tsx
 React.useEffect(() => {
-  // ble
   Bluetooth.connectToDevice({
     peripheralUUID: "xxx-xxx-xxx"
   }).then((isConnected: boolean) => console.log(isConnected));
@@ -218,13 +217,12 @@ Disconnects from a given device.
 
 Returns a boolean when the device disconnects. The [`.disconnect`](#-disconnect) listener will emit an event when the device disconnects.
 
-| Parameter        | Type     | Description                          | Default      |
-| ---------------- | -------- | ------------------------------------ | ------------ |
-| `peripheralUUID` | `string` | The UUID of the device to connect to | **Required** |
+| Parameter      | Type     | Description                          | Default      |
+| -------------- | -------- | ------------------------------------ | ------------ |
+| peripheralUUID | `string` | The UUID of the device to connect to | **Required** |
 
 ```tsx
 React.useEffect(() => {
-  // ble
   Bluetooth.disconnectFromDevice({
     peripheralUUID: "xxx-xxx-xxx"
   }).then((didDisconnect: boolean) => console.log(didDisconnect));
@@ -247,9 +245,9 @@ React.useEffect(() => {
 
 Gets a list of connected devices.
 
-| Parameter      | Type       | Description                                   | Default |
-| -------------- | ---------- | --------------------------------------------- | ------- |
-| `serviceUUIDs` | `string[]` | A list of service UUIDs for connected devices | `[]`    |
+| Parameter    | Type       | Description                                   | Default |
+| ------------ | ---------- | --------------------------------------------- | ------- |
+| serviceUUIDs | `string[]` | A list of service UUIDs for connected devices | `[]`    |
 
 ```tsx
 const connectedDevices = Bluetooth.getConnectedDevices();
@@ -259,17 +257,16 @@ const connectedDevices = Bluetooth.getConnectedDevices();
 
 Reads data from a device for a given characteristic. Returns the received data. The listener [`.read`](#-read) emits an event with the data when read.
 
-| Parameter            | Type               | Description                                                                                              | Default                        |
-| -------------------- | ------------------ | -------------------------------------------------------------------------------------------------------- | ------------------------------ |
-| `peripheralUUID`     | `string`           | The UUID of the device to read from                                                                      | **Required**                   |
-| `serviceUUID`        | `string`           | The UUID of the service that has the characteristic to read from                                         | **Required**                   |
-| `characteristicUUID` | `string`           | The UUID of the characteristic to read from                                                              | **Required**                   |
-| `dataType`           | `BufferDataTypes?` | The type of data expected. See [BufferDataTypes](#bufferdatatypes).                                      | `undefined` (returns `Buffer`) |
-| `dataOffset`         | `number`           | The number of bytes to skip before starting to read.                                                     | `0`                            |
-| `dataByteLength`     | `number`           | Number of bytes to read. This is for certain buffer types only, see [BufferDataTypes](#bufferdatatypes). | `0`                            |
+| Parameter          | Type               | Description                                                                                              | Default                        |
+| ------------------ | ------------------ | -------------------------------------------------------------------------------------------------------- | ------------------------------ |
+| peripheralUUID     | `string`           | The UUID of the device to read from                                                                      | **Required**                   |
+| serviceUUID        | `string`           | The UUID of the service that has the characteristic to read from                                         | **Required**                   |
+| characteristicUUID | `string`           | The UUID of the characteristic to read from                                                              | **Required**                   |
+| dataType           | `BufferDataTypes?` | The type of data expected. See [BufferDataTypes](#bufferdatatypes).                                      | `undefined` (returns `Buffer`) |
+| dataOffset         | `number`           | The number of bytes to skip before starting to read.                                                     | `0`                            |
+| dataByteLength     | `number`           | Number of bytes to read. This is for certain buffer types only, see [BufferDataTypes](#bufferdatatypes). | `0`                            |
 
 ```tsx
-// ble
 const readData = Bluetooth.readFromDevice({
   peripheralUUID: "xxx-xxx-xxx",
   serviceUUID: "yyy-yyy-yyy",
@@ -279,7 +276,6 @@ const readData = Bluetooth.readFromDevice({
   // Buffer.from(data).toString() // if your expected data is a string
 });
 
-// ble
 // you can also provide the `data-` params to have the package automatically decode the Buffer data and return the decoded value
 const readData = Bluetooth.readFromDevice({
   peripheralUUID: "xxx-xxx-xxx",
@@ -304,16 +300,15 @@ React.useEffect(() => {
 
 Writes data to a device on a given characteristic. Returns a `boolean` for whether or not the data was successfully written to the device. The [`.write`](#-write) listener will emit an event when data is successfully written.
 
-| Parameter            | Type      | Description                                                      | Default      |
-| -------------------- | --------- | ---------------------------------------------------------------- | ------------ |
-| `peripheralUUID`     | `string`  | The UUID of the device to read from                              | **Required** |
-| `serviceUUID`        | `string`  | The UUID of the service that has the characteristic to read from | **Required** |
-| `characteristicUUID` | `string`  | The UUID of the characteristic to read from                      | **Required** |
-| `writeData`          | `string`  | The data to write.                                               | **Required** |
-| `withResponse`       | `boolean` | Whether or not to write with response (vs. without).             | `true`       |
+| Parameter          | Type      | Description                                                      | Default      |
+| ------------------ | --------- | ---------------------------------------------------------------- | ------------ |
+| peripheralUUID     | `string`  | The UUID of the device to read from                              | **Required** |
+| serviceUUID        | `string`  | The UUID of the service that has the characteristic to read from | **Required** |
+| characteristicUUID | `string`  | The UUID of the characteristic to read from                      | **Required** |
+| writeData          | `string`  | The data to write.                                               | **Required** |
+| withResponse       | `boolean` | Whether or not to write with response (vs. without).             | `true`       |
 
 ```tsx
-// ble
 const writeData = Bluetooth.writeToDevice({
   peripheralUUID: "xxx-xxx-xxx",
   serviceUUID: "yyy-yyy-yyy",
@@ -337,12 +332,12 @@ React.useEffect(() => {
 
 Sets whether or not to notify on a given characteristic. The listener [`.notification`](#-notification) emits an event when a notification is emitted from the device when `shouldNotify` is set to `true`.
 
-| Parameter            | Type      | Description                                                      | Default      |
-| -------------------- | --------- | ---------------------------------------------------------------- | ------------ |
-| `peripheralUUID`     | `string`  | The UUID of the device to read from                              | **Required** |
-| `serviceUUID`        | `string`  | The UUID of the service that has the characteristic to read from | **Required** |
-| `characteristicUUID` | `string`  | The UUID of the characteristic to read from                      | **Required** |
-| `shouldNotify`       | `boolean` | Whether or not to notify                                         | **Required** |
+| Parameter          | Type      | Description                                                      | Default      |
+| ------------------ | --------- | ---------------------------------------------------------------- | ------------ |
+| peripheralUUID     | `string`  | The UUID of the device to read from                              | **Required** |
+| serviceUUID        | `string`  | The UUID of the service that has the characteristic to read from | **Required** |
+| characteristicUUID | `string`  | The UUID of the characteristic to read from                      | **Required** |
+| shouldNotify       | `boolean` | Whether or not to notify                                         | **Required** |
 
 ```tsx
 React.useEffect(() => {
@@ -366,9 +361,9 @@ React.useEffect(() => {
 
 Requests to fetch the services and their characteristics from a given device. This function returns nothing, instead the services and characteristics are emitted in 2 events: [`.discoverServices`](#-discoverServices) and [`.discoverCharacteristics`](#-discoverCharacteristics).
 
-| Parameter        | Type     | Description                         | Default      |
-| ---------------- | -------- | ----------------------------------- | ------------ |
-| `peripheralUUID` | `string` | The UUID of the device to read from | **Required** |
+| Parameter      | Type     | Description                         | Default      |
+| -------------- | -------- | ----------------------------------- | ------------ |
+| peripheralUUID | `string` | The UUID of the device to read from | **Required** |
 
 ```tsx
 React.useEffect(() => {
@@ -398,9 +393,9 @@ React.useEffect(() => {
 
 Requests to fetch the RSSI of a given device. This function returns nothing, instead the RSSI is emitted on the [`.rssi`](#-rssi) event.
 
-| Parameter        | Type     | Description                         | Default      |
-| ---------------- | -------- | ----------------------------------- | ------------ |
-| `peripheralUUID` | `string` | The UUID of the device to read from | **Required** |
+| Parameter      | Type     | Description                         | Default      |
+| -------------- | -------- | ----------------------------------- | ------------ |
+| peripheralUUID | `string` | The UUID of the device to read from | **Required** |
 
 ```tsx
 React.useEffect(() => {
@@ -422,9 +417,9 @@ React.useEffect(() => {
 
 Returns whether or not a given device is connected.
 
-| Parameter        | Type     | Description                         | Default      |
-| ---------------- | -------- | ----------------------------------- | ------------ |
-| `peripheralUUID` | `string` | The UUID of the device to read from | **Required** |
+| Parameter      | Type     | Description                         | Default      |
+| -------------- | -------- | ----------------------------------- | ------------ |
+| peripheralUUID | `string` | The UUID of the device to read from | **Required** |
 
 ```tsx
 React.useEffect(() => {
@@ -438,9 +433,9 @@ React.useEffect(() => {
 
 Returns all device information for a given device by identifier.
 
-| Parameter        | Type     | Description                         | Default      |
-| ---------------- | -------- | ----------------------------------- | ------------ |
-| `peripheralUUID` | `string` | The UUID of the device to read from | **Required** |
+| Parameter      | Type     | Description                         | Default      |
+| -------------- | -------- | ----------------------------------- | ------------ |
+| peripheralUUID | `string` | The UUID of the device to read from | **Required** |
 
 ```tsx
 React.useEffect(() => {
