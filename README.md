@@ -1,6 +1,6 @@
 # react-native-iot-tools
 
-A suite of IoT tools for React Native applications.
+**WIP**. A suite of IoT tools for React Native applications.
 
 | Package                                                       | iOS | Android |
 | ------------------------------------------------------------- | --- | ------- |
