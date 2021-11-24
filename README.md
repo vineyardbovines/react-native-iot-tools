@@ -2,12 +2,12 @@
 
 A suite of IoT tools for React Native applications.
 
-| Package                                                     | iOS | Android |
-| ----------------------------------------------------------- | --- | ------- |
-| [`@react-native-iot-tools/bluetooth`](./packages/bluetooth) | ✅  | ❌      |
-| [`@react-native-iot-tools/esp32`](./packages/esp32)         | ✅  | ❌      |
-| [`@react-native-iot-tools/hooks`](./packages/hooks)         | ✅  | ✅      |
-| [`@react-native-iot-tools/wifi`](./packages/wifi)           | ✅  | ❌      |
+| Package                                                       | iOS | Android |
+| ------------------------------------------------------------- | --- | ------- |
+| [`@react-native-iot-tools/bluetooth`](./packages/bluetooth)   | ✅  | ❌      |
+| [`@react-native-iot-tools/components`](./packages/components) | ✅  | ✅      |
+| [`@react-native-iot-tools/esp32`](./packages/esp32)           | ✅  | ❌      |
+| [`@react-native-iot-tools/wifi`](./packages/wifi)             | ✅  | ❌      |
 
 ## Roadmap
 
