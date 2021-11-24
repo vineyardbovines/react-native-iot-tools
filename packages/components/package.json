@@ -1,0 +1,39 @@
+{
+  "name": "@react-native-iot-tools/components",
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "module": "dist/components.esm.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "author": "Sara Pope <sarafpope@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gretzky/react-native-iot-tools.git",
+    "directory": "packages/components"
+  },
+  "scripts": {
+    "build": "tsdx build --tsconfig tsconfig.build.json",
+    "lint": "tsdx lint",
+    "prepublish": "yarn run build"
+  },
+  "dependencies": {
+    "expo-barcode-scanner": "^10.2.2",
+    "expo-camera": "^11.2.2",
+    "expo-haptics": "^10.1.0",
+    "formik": "^2.2.9",
+    "native-base": "^3.0.7",
+    "yup": "^0.32.9"
+  },
+  "peerDependencies": {
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

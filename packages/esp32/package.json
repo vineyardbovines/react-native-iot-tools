@@ -1,0 +1,33 @@
+{
+  "name": "@react-native-iot-tools/esp32",
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "module": "dist/esp32.esm.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "ios",
+    "android",
+    "README.md"
+  ],
+  "author": "Sara Pope <sarafpope@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gretzky/react-native-iot-tools.git",
+    "directory": "packages/esp32"
+  },
+  "scripts": {
+    "build": "tsdx build --tsconfig tsconfig.build.json",
+    "lint": "tsdx lint",
+    "prepublish": "yarn run build"
+  },
+  "peerDependencies": {
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

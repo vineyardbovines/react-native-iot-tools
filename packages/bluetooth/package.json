@@ -1,0 +1,46 @@
+{
+  "name": "@react-native-iot-tools/bluetooth",
+  "version": "0.1.0",
+  "description": "React Native bluetooth module",
+  "main": "dist/index.js",
+  "module": "dist/bluetooth.esm.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "ios",
+    "with-bluetooth-expo-plugin.js",
+    "README.md"
+  ],
+  "author": "Sara Pope <sarafpope@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gretzky/react-native-iot-tools.git",
+    "directory": "packages/bluetooth"
+  },
+  "keywords": [
+    "react-native",
+    "bluetooth",
+    "CoreBluetooth",
+    "iOS",
+    "serial",
+    "bluetooth-classic",
+    "ble"
+  ],
+  "scripts": {
+    "build": "tsdx build --tsconfig tsconfig.build.json",
+    "lint": "tsdx lint",
+    "prepublish": "yarn run build"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-native": "^0.66.3"
+  },
+  "devDependencies": {
+    "type-fest": "^2.5.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

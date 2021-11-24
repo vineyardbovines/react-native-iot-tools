@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:helpers">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/sara/dev/oss/react-native-iot-tools/packages/bluetooth/ios/Bluetooth.m">
+   </FileRef>
+   <FileRef
+      location = "group:delegate">
+   </FileRef>
+   <FileRef
+      location = "group:device">
+   </FileRef>
+   <FileRef
+      location = "group:enum">
+   </FileRef>
+   <FileRef
+      location = "group:extensions">
+   </FileRef>
+   <FileRef
+      location = "group:Bluetooth.swift">
+   </FileRef>
+   <FileRef
+      location = "group:Bluetooth.xcodeproj">
+   </FileRef>
+</Workspace>
